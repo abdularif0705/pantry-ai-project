@@ -13,7 +13,7 @@ export default function Home() {
   const [itemName, setItemName] = useState('');
 
   const updatePantry = async () => {
-    const snapshot = query(collection(firestore, "pantry"));
+    const snapshot = query(collection(firestore, "pantry-ai"));
     const docs = await getDocs(snapshot);
     const pantryList = [];
     docs.forEach((doc) => {
@@ -26,7 +26,7 @@ export default function Home() {
   }
 
   const addItem = async (item) => {
-    const docRef = doc(collection(firestore, "pantry"), item);
+    const docRef = doc(collection(firestore, "pantry-ai"), item);
     const docSnap = await getDoc(docRef);
 
     if (docSnap.exists()) {
@@ -40,7 +40,7 @@ export default function Home() {
   }
 
   const removeItem = async (item) => {
-    const docRef = doc(collection(firestore, "pantry"), item);
+    const docRef = doc(collection(firestore, "pantry-ai"), item);
     const docSnap = await getDoc(docRef);
 
     if (docSnap.exists()) {
